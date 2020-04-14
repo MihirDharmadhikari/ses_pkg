@@ -1,0 +1,14 @@
+<launch>
+	<group ns="c1">
+		<node pkg="basic" type="basic_pub.py" name="publisher">
+			<remap from="counter" to="counter_1"/>
+		</node>
+	</group>
+	<group ns="c2">
+		<node pkg="basic" type="basic_pub.py" name="publisher">
+			<remap from="counter" to="counter_1"/>
+		</node>
+	</group>
+	<node pkg="basic" type="custom_server.py" name="server"/>
+	<node pkg="basic" type="custom_client.py" name="client"/>
+</launch>
