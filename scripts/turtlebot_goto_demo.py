@@ -10,6 +10,11 @@ from nav_msgs.msg import Odometry
 class Traveller(object):
 	def __init__(self):
 		# Variables
+		initialize_variables()
+		# Publishers and Subscribers
+		initialize_pub_sub()		
+
+	def initialize_variables(self):
 		self.odom = Odometry()
 		self.curr_pos = numpy.array((0.0,0.0))
 		self.goal = numpy.array((0.0,0.0))
@@ -27,6 +32,7 @@ class Traveller(object):
 		self.k_lin = 1.0  # Proportional gain for lin vel
 		self.k_ang = 0.3  # Proportional gain for ang vel
 
+	def initialize_pub_sub(self):
 		# Publisher
 		self.vel_pub = rospy.Publisher('cmd_vel', Twist, queue_size = 10)
 		# Subscriber
