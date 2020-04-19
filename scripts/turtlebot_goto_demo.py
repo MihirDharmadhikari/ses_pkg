@@ -77,7 +77,7 @@ class Traveller(object):
 			else:
 				lin_vel = max(self.min_lin_vel, min(self.k_lin*lin_error, self.max_lin_vel))
 
-			ang_vel = min(self.k_ang*ang_error, self.max_ang_vel)
+			ang_vel = max(-self.max_ang_vel, min(self.k_ang*ang_error, self.max_ang_vel))
 			print "Vels:  ", lin_vel, ang_vel
 
 			self.vel_publisher(lin_vel, ang_vel)
