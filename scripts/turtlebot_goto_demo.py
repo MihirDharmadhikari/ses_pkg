@@ -10,9 +10,9 @@ from nav_msgs.msg import Odometry
 class Traveller(object):
 	def __init__(self):
 		# Variables
-		initialize_variables()
+		self.initialize_variables()
 		# Publishers and Subscribers
-		initialize_pub_sub()		
+		self.initialize_pub_sub()		
 
 	def initialize_variables(self):
 		self.odom = Odometry()
